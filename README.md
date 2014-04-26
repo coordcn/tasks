@@ -20,27 +20,27 @@
 
 __Arguments__
 * @param tasks {object} 任务
-    ```js
-    function task(callback){
-      fs.readFile(path, function(err, data){
-        if(err){
-          callback(err);
-        }else{
-          callback(null, data);
-        }
-      });
-    }
-    ```
-* @param callback {function} 任务全部完成后执行的回调函数
-    ```js
-    function callback(err, results){
+```js
+  function task(callback){
+    fs.readFile(path, function(err, data){
       if(err){
-        handle(err);
+        callback(err);
       }else{
-        handle(results);
+        callback(null, data);
       }
+    });
+  }
+```
+* @param callback {function} 任务全部完成后执行的回调函数
+```js
+  function callback(err, results){
+    if(err){
+      handle(err);
+    }else{
+      handle(results);
     }
-    ```
+  }
+```
 __Example__
 ```js
   parallel({
@@ -82,28 +82,28 @@ __Example__
 
 __Arguments__
 * @param tasks {object} 任务
-    ```js
-    function task(callback, reuslt){
-      var path = result;
-      fs.readFile(path, function(err, data){
-        if(err){
-          callback(err);
-        }else{
-          callback(null, data);
-        }
-      });
-    }
-    ```
-* @param callback {function} 任务全部完成后执行的回调函数
-    ```js
-    function callback(err, result){
+```js
+  function task(callback, reuslt){
+    var path = result;
+    fs.readFile(path, function(err, data){
       if(err){
-        handle(err);
+        callback(err);
       }else{
-        handle(result);
+        callback(null, data);
       }
+    });
+  }
+```
+* @param callback {function} 任务全部完成后执行的回调函数
+```js
+  function callback(err, result){
+    if(err){
+      handle(err);
+    }else{
+      handle(result);
     }
-    ```
+  }
+```
     
 __Example__
 ```js
