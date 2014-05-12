@@ -45,6 +45,28 @@ function pcallback(err, results){
   }
 }
 
+tasks.map(['test5.txt', 'test6.txt'], mtask, mcallback);
+function mtask(item, cb){
+  fs.readFile(item, function(err, data){
+    if(err){
+      console.log(item + '(err):' + Date.now());
+      cb(err);
+    }else{
+      console.log(item + ':' + Date.now());
+      cb(null, data.toString());
+    }
+  });
+}
+
+function mcallback(err, results){
+  if(err){
+    console.log('m(err):' + Date.now());
+    console.log(err);
+  }else{
+    console.log('m:' + Date.now());
+    console.log(results);
+  }
+}
 
 tasks.series({
   test0:stest0,
